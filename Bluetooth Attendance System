@@ -1,0 +1,599 @@
+#This Scipt compiles a QWidget object to creates top level window , Entry boxes , Buttons and a Disdplay Box . 
+The GUI Applications allows Lectures to Scan Bluetooth Devices and enter Student Attendance records .
+A MYSQL Api is used to save Student Attendance Records 
+
+
+
+from PyQt4 import QtCore, QtGui 
+
+  
+
+try: 
+
+    _fromUtf8 = QtCore.QString.fromUtf8 
+
+except AttributeError: 
+
+    def _fromUtf8(s): 
+
+        return s 
+
+  
+
+try: 
+
+    _encoding = QtGui.QApplication.UnicodeUTF8 
+
+    def _translate(context, text, disambig): 
+
+        return QtGui.QApplication.translate(context, text, disambig, _encoding) 
+
+except AttributeError: 
+
+    def _translate(context, text, disambig): 
+
+        return QtGui.QApplication.translate(context, text, disambig) 
+
+  
+
+class Ui_Dialog(object): 
+
+    def setupUi(self, Dialog): 
+
+        Dialog.setObjectName(_fromUtf8("Dialog")) 
+
+        Dialog.resize(788, 660) 
+
+        self.buttonBox = QtGui.QDialogButtonBox(Dialog) 
+
+        self.buttonBox.setGeometry(QtCore.QRect(430, 620, 341, 32)) 
+
+        self.buttonBox.setOrientation(QtCore.Qt.Horizontal) 
+
+        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok) 
+
+        self.buttonBox.setObjectName(_fromUtf8("buttonBox")) 
+
+        self.label = QtGui.QLabel(Dialog) 
+
+        self.label.setGeometry(QtCore.QRect(20, 270, 91, 17)) 
+
+        self.label.setObjectName(_fromUtf8("label")) 
+
+        self.lineEdit = QtGui.QLineEdit(Dialog) 
+
+        self.lineEdit.setGeometry(QtCore.QRect(130, 260, 101, 27)) 
+
+        self.lineEdit.setObjectName(_fromUtf8("lineEdit")) 
+
+        self.label_2 = QtGui.QLabel(Dialog) 
+
+        self.label_2.setGeometry(QtCore.QRect(20, 220, 91, 17)) 
+
+        self.label_2.setObjectName(_fromUtf8("label_2")) 
+
+        self.lineEdit_2 = QtGui.QLineEdit(Dialog) 
+
+        self.lineEdit_2.setGeometry(QtCore.QRect(130, 220, 201, 27)) 
+
+        self.lineEdit_2.setObjectName(_fromUtf8("lineEdit_2")) 
+
+        self.label_3 = QtGui.QLabel(Dialog) 
+
+        self.label_3.setGeometry(QtCore.QRect(30, 320, 81, 17)) 
+
+        self.label_3.setObjectName(_fromUtf8("label_3")) 
+
+        self.lineEdit_3 = QtGui.QLineEdit(Dialog) 
+
+        self.lineEdit_3.setGeometry(QtCore.QRect(130, 310, 201, 27)) 
+
+        self.lineEdit_3.setObjectName(_fromUtf8("lineEdit_3")) 
+
+        self.lineEdit_4 = QtGui.QLineEdit(Dialog) 
+
+        self.lineEdit_4.setGeometry(QtCore.QRect(550, 220, 113, 27)) 
+
+        self.lineEdit_4.setObjectName(_fromUtf8("lineEdit_4")) 
+
+        self.label_4 = QtGui.QLabel(Dialog) 
+
+        self.label_4.setGeometry(QtCore.QRect(30, 370, 81, 17)) 
+
+        self.label_4.setObjectName(_fromUtf8("label_4")) 
+
+        self.lineEdit_5 = QtGui.QLineEdit(Dialog) 
+
+        self.lineEdit_5.setGeometry(QtCore.QRect(130, 360, 201, 27)) 
+
+        self.lineEdit_5.setObjectName(_fromUtf8("lineEdit_5")) 
+
+        self.lineEdit_6 = QtGui.QLineEdit(Dialog) 
+
+        self.lineEdit_6.setGeometry(QtCore.QRect(130, 410, 113, 27)) 
+
+        self.lineEdit_6.setObjectName(_fromUtf8("lineEdit_6")) 
+
+        self.label_5 = QtGui.QLabel(Dialog) 
+
+        self.label_5.setGeometry(QtCore.QRect(30, 420, 68, 17)) 
+
+        self.label_5.setObjectName(_fromUtf8("label_5")) 
+
+        self.label_6 = QtGui.QLabel(Dialog) 
+
+        self.label_6.setGeometry(QtCore.QRect(440, 230, 71, 17)) 
+
+        self.label_6.setObjectName(_fromUtf8("label_6")) 
+
+        self.label_7 = QtGui.QLabel(Dialog) 
+
+        self.label_7.setGeometry(QtCore.QRect(440, 270, 68, 17)) 
+
+        self.label_7.setObjectName(_fromUtf8("label_7")) 
+
+        self.lineEdit_7 = QtGui.QLineEdit(Dialog) 
+
+        self.lineEdit_7.setGeometry(QtCore.QRect(550, 260, 201, 27)) 
+
+        self.lineEdit_7.setObjectName(_fromUtf8("lineEdit_7")) 
+
+        self.lineEdit_8 = QtGui.QLineEdit(Dialog) 
+
+        self.lineEdit_8.setGeometry(QtCore.QRect(550, 300, 201, 27)) 
+
+        self.lineEdit_8.setObjectName(_fromUtf8("lineEdit_8")) 
+
+        self.label_8 = QtGui.QLabel(Dialog) 
+
+        self.label_8.setGeometry(QtCore.QRect(440, 310, 68, 17)) 
+
+        self.label_8.setObjectName(_fromUtf8("label_8")) 
+
+        self.label_9 = QtGui.QLabel(Dialog) 
+
+        self.label_9.setGeometry(QtCore.QRect(30, 470, 91, 17)) 
+
+        self.label_9.setObjectName(_fromUtf8("label_9")) 
+
+        self.lineEdit_9 = QtGui.QLineEdit(Dialog) 
+
+        self.lineEdit_9.setGeometry(QtCore.QRect(130, 460, 201, 27)) 
+
+        self.lineEdit_9.setObjectName(_fromUtf8("lineEdit_9")) 
+
+        self.lineEdit_10 = QtGui.QLineEdit(Dialog) 
+
+        self.lineEdit_10.setGeometry(QtCore.QRect(130, 500, 201, 27)) 
+
+        self.lineEdit_10.setObjectName(_fromUtf8("lineEdit_10")) 
+
+        self.label_10 = QtGui.QLabel(Dialog) 
+
+        self.label_10.setGeometry(QtCore.QRect(30, 510, 91, 17)) 
+
+        self.label_10.setObjectName(_fromUtf8("label_10")) 
+
+        self.label_11 = QtGui.QLabel(Dialog) 
+
+        self.label_11.setGeometry(QtCore.QRect(30, 547, 91, 20)) 
+
+        self.label_11.setObjectName(_fromUtf8("label_11")) 
+
+        self.lineEdit_11 = QtGui.QLineEdit(Dialog) 
+
+        self.lineEdit_11.setGeometry(QtCore.QRect(130, 540, 201, 27)) 
+
+        self.lineEdit_11.setObjectName(_fromUtf8("lineEdit_11")) 
+
+        self.lineEdit_12 = QtGui.QLineEdit(Dialog) 
+
+        self.lineEdit_12.setGeometry(QtCore.QRect(130, 580, 201, 27)) 
+
+        self.lineEdit_12.setObjectName(_fromUtf8("lineEdit_12")) 
+
+        self.label_12 = QtGui.QLabel(Dialog) 
+
+        self.label_12.setGeometry(QtCore.QRect(30, 590, 81, 17)) 
+
+        self.label_12.setObjectName(_fromUtf8("label_12")) 
+
+        self.label_13 = QtGui.QLabel(Dialog) 
+
+        self.label_13.setGeometry(QtCore.QRect(30, 630, 68, 17)) 
+
+        self.label_13.setObjectName(_fromUtf8("label_13")) 
+
+        self.radioButton = QtGui.QRadioButton(Dialog) 
+
+        self.radioButton.setGeometry(QtCore.QRect(130, 630, 117, 22)) 
+
+        self.radioButton.setObjectName(_fromUtf8("radioButton")) 
+
+        self.radioButton_2 = QtGui.QRadioButton(Dialog) 
+
+        self.radioButton_2.setGeometry(QtCore.QRect(200, 630, 117, 22)) 
+
+        self.radioButton_2.setObjectName(_fromUtf8("radioButton_2")) 
+
+        self.label_14 = QtGui.QLabel(Dialog) 
+
+        self.label_14.setGeometry(QtCore.QRect(440, 350, 68, 17)) 
+
+        self.label_14.setObjectName(_fromUtf8("label_14")) 
+
+        self.lineEdit_13 = QtGui.QLineEdit(Dialog) 
+
+        self.lineEdit_13.setGeometry(QtCore.QRect(550, 340, 201, 27)) 
+
+        self.lineEdit_13.setObjectName(_fromUtf8("lineEdit_13")) 
+
+        self.pushButton = QtGui.QPushButton(Dialog) 
+
+        self.pushButton.setGeometry(QtCore.QRect(20, 170, 99, 27)) 
+
+        self.pushButton.setObjectName(_fromUtf8("pushButton")) 
+
+        self.listView = QtGui.QListView(Dialog) 
+
+        self.listView.setGeometry(QtCore.QRect(20, 0, 171, 161)) 
+
+        self.listView.setObjectName(_fromUtf8("listView")) 
+
+  
+
+        self.retranslateUi(Dialog) 
+
+        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("accepted()")), Dialog.accept) 
+
+        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("rejected()")), Dialog.reject) 
+
+        QtCore.QMetaObject.connectSlotsByName(Dialog) 
+
+  
+
+    def retranslateUi(self, Dialog): 
+
+        Dialog.setWindowTitle(_translate("Dialog", "Dialog", None)) 
+
+        self.label.setText(_translate("Dialog", "Student No", None)) 
+
+        self.label_2.setText(_translate("Dialog", "Mac Address", None)) 
+
+        self.label_3.setText(_translate("Dialog", "First Name", None)) 
+
+        self.label_4.setText(_translate("Dialog", "Last Name", None)) 
+
+        self.label_5.setText(_translate("Dialog", "DOB", None)) 
+
+        self.label_6.setText(_translate("Dialog", "Module ID", None)) 
+
+        self.label_7.setText(_translate("Dialog", "Tittle", None)) 
+
+        self.label_8.setText(_translate("Dialog", "Duration", None)) 
+
+        self.label_9.setText(_translate("Dialog", "Address 1", None)) 
+
+        self.label_10.setText(_translate("Dialog", "Address 2", None)) 
+
+        self.label_11.setText(_translate("Dialog", "Town", None)) 
+
+        self.label_12.setText(_translate("Dialog", "City", None)) 
+
+        self.label_13.setText(_translate("Dialog", "Sex", None)) 
+
+        self.radioButton.setText(_translate("Dialog", "Male", None)) 
+
+        self.radioButton_2.setText(_translate("Dialog", "Female", None)) 
+
+        self.label_14.setText(_translate("Dialog", "Room No", None)) 
+
+        self.pushButton.setText(_translate("Dialog", "Scan", None)) 
+
+  
+
+  
+
+if __name__ == "__main__": 
+
+    import sys 
+
+    app = QtGui.QApplication(sys.argv) 
+
+    Dialog = QtGui.QDialog() 
+
+    ui = Ui_Dialog() 
+
+    ui.setupUi(Dialog) 
+
+    Dialog.show() 
+
+    sys.exit(app.exec_()) 
+
+  
+
+from Tkinter import * 
+
+import Tkinter as tk  
+
+import bluetooth  
+
+from  tkMessageBox import * 
+
+import MySQLdb 
+
+  
+
+db = MySQLdb.connect("localhost","root","root" , "studentregister") 
+
+cur = db.cursor() 
+
+  
+
+root = Tk() 
+
+root.title('Bluetooth Register ') 
+
+studentno = StringVar() 
+
+firstname= StringVar() 
+
+lastname = StringVar() 
+
+DOBent  = StringVar() 
+
+address1= StringVar() 
+
+address2= StringVar() 
+
+town = StringVar() 
+
+postcode=StringVar() 
+
+email = StringVar() 
+
+select=StringVar() 
+
+  
+
+  
+
+studentNolabel = Label(text="Student No").grid(row=0) 
+
+studentEntry = Entry(root,textvariable=studentno) 
+
+studentEntry.grid(row=0,column=1) 
+
+  
+
+  
+
+firstNamelabel = Label(text="First Name").grid(row=1) 
+
+firstNameEntry = Entry(root,textvariable=firstname) 
+
+firstNameEntry.grid(row=1,column=1) 
+
+  
+
+  
+
+lastNamelabel = Label(text="Last Name").grid(row=2) 
+
+LastNameEntry = Entry(root,textvariable=lastname) 
+
+LastNameEntry.grid(row=2,column=1) 
+
+  
+
+dOBlabel = Label(text="DOB").grid(row=3) 
+
+DOBEntry = Entry(root,textvariable=DOBent) 
+
+DOBEntry.grid(row=3,column=1) 
+
+  
+
+address1label= Label(text="Address 1 ").grid(row=4) 
+
+adddress1Entry = Entry(root,textvariable=address1) 
+
+adddress1Entry.grid(row=4,column=1) 
+
+  
+
+address2label = Label(text="Address 2 ").grid(row=5) 
+
+address2Entry = Entry(root,textvariable=address2) 
+
+address2Entry.grid(row=5,column=1) 
+
+  
+
+townlabel= Label(text="Town").grid(row=6) 
+
+TownEntry = Entry(root,textvariable=town) 
+
+TownEntry.grid(row=6,column=1) 
+
+  
+
+Postcodelabel= Label(text="City").grid(row=7) 
+
+postcodeEntry = Entry(root,textvariable=postcode) 
+
+postcodeEntry.grid(row=7,column=1) 
+
+  
+
+emaillabel= Label(text="Module").grid(row=8) 
+
+emailEntry = Entry(root,textvariable=email) 
+
+emailEntry.grid(row=8,column=1) 
+
+  
+
+def submitenteries(): 
+
+    cur = db.cursor() 
+
+    cur.execute("""INSERT INTO studentdetail2s(studentno,firstname,lastname,DOB,Address1,Address2,Town,City,Module,MacAddress) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')""" %(studentno.get(),firstname.get(),lastname.get(),DOBent.get(),address1.get(),address2.get(),town.get(),postcode.get(),email.get(),nameVar.get())) 
+
+    db.commit() 
+
+     
+
+    if not studentno.get(): 
+
+        showerror("Student Number", "Please Enter Student Number") 
+
+    if not firstname.get(): 
+
+        showerror("Student Name", "Please Enter Student Name") 
+
+    if not lastname.get(): 
+
+        showerror("Student Last Name", "Please Enter Student's Last Name") 
+
+    if not DOBent.get(): 
+
+        showerror("DOB","Please Enter Student's Date of Birth") 
+
+    if not address1.get(): 
+
+       showerror("Address 1","Please Enter Address 1") 
+
+    if not address2.get(): 
+
+        showerror("Address 2", "Please Enter Address 2") 
+
+    if not town.get(): 
+
+         showerror("Town", "Please Enter Student's Town") 
+
+    if not postcode.get(): 
+
+         showerror("Post", "Please Enter Student's Postcode") 
+
+    if not email.get(): 
+
+         showerror("Email", "Please Enter Student's Email") 
+
+    if not nameVar.get(): 
+
+        showerror("Device Scan", "Please Scan ") 
+
+    print 'Sucessfully Addeded to Database ! ' 
+
+  
+
+  
+
+b = Button(text="Register" , command=submitenteries).grid(row=19 ,column=2) 
+
+c = Button(text="Exit",command=root.destroy).grid(row=19,column=3) 
+
+listbox = Listbox() 
+
+listlabel= Label(text="Student Devices").grid() 
+
+listbox.grid() 
+
+  
+
+  
+
+selectedlabel= Label(text= "Mac Address").grid(row=12) 
+
+nameVar = StringVar() 
+
+seletedEntry= Entry(textvariable=nameVar).grid(row=12, column=1) 
+
+  
+
+def bluetoothscan(): 
+
+    nearby_devices = bluetooth.discover_devices(lookup_names=True) 
+
+    for addr, name in nearby_devices: 
+
+        listbox.insert(END,"  %s" % (addr)) 
+
+  
+
+  
+
+  
+
+def CurSelet(event): 
+
+    widget = event.widget 
+
+    selection=widget.curselection() 
+
+    picked = widget.get(selection[0]) 
+
+    nameVar.set(picked) 
+
+  
+
+  
+
+root.bind('<<ListboxSelect>>',CurSelet) 
+
+d = Button(text="Scan",command=bluetoothscan).grid(row=19,column=5) 
+
+root.geometry('500x800') 
+
+db.commit() 
+
+root.mainloop() 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+SQL Connection  
+
+import MySQLdb 
+
+  
+
+  
+
+# Open database connection 
+
+db = MySQLdb.connect("localhost","root","root" , "studentregister") 
+
+cur = db.cursor() 
+
+  
+
+cur.execute('DROP TABLE IF EXISTS studentdetails') 
+
+  
+
+cur.execute("create table studentdetails(studentno int,firstname varchar(20),lastname varchar(20), DOB  datetime, Address1 varchar(20) ,Address2 varchar(20),Town varchar(20), City varchar(20), Module varchar(20) ,MacAddress varchar(20)) ") 
+
+  
+
+print "table created successfully" 
+
+  
+
+cur.close() 
+
+db.close() 
+
+SQL CONTENTS  
+
+ 
